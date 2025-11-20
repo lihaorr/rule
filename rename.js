@@ -279,7 +279,11 @@ function operator(pro) {
         .filter((k) => k !== "");
       e.name = keyover.join(FGF);
     } else {
-      if (nm) {
+    // ⭐ 保留自建节点
+      if (/自建|zj|personal|自用/i.test(e.name)) {
+        // 不进行重命名，原样保留
+        e.name = e.name;
+      } else if (nm) {
         e.name = FNAME + FGF + e.name;
       } else {
         e.name = null;
