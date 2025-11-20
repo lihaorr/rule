@@ -250,10 +250,15 @@ function operator(pro) {
     }
 
     !GetK && ObjKA(Allmap)
-    // 匹配 Allkey 地区
-    const findKey = AMK.find(([key]) =>
+
+    // ⭐ 先判断是否自建节点
+    const isSelf = /自建|zj|personal|自用/i.test(e.name)
+
+    // 匹配 Allkey 地区，自建节点不参与地区匹配
+    const findKey = isSelf ? null : AMK.find(([key]) =>
       e.name.includes(key)
     )
+  
     
     let firstName = "",
       nNames = "";
